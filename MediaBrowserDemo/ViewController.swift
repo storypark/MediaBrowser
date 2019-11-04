@@ -71,30 +71,30 @@ class ViewController: UITableViewController {
 
 //MARK: MediaBrowserDelegate
 extension ViewController: MediaBrowserDelegate {
-    func thumbnail(for mediaBrowser: MediaBrowser, at index: Int) -> Media {
+    @objc func thumbnail(for mediaBrowser: MediaBrowser, at index: Int) -> Media {
         if index < thumbs.count {
             return thumbs[index]
         }
         return DemoData.localMediaPhoto(imageName: "MotionBookIcon", caption: "ThumbPhoto at index is wrong")
     }
     
-    func media(for mediaBrowser: MediaBrowser, at index: Int) -> Media {
+    @objc func media(for mediaBrowser: MediaBrowser, at index: Int) -> Media {
         if index < mediaArray.count {
             return mediaArray[index]
         }
         return DemoData.localMediaPhoto(imageName: "MotionBookIcon", caption: "Photo at index is Wrong")
     }
     
-    func numberOfMedia(in mediaBrowser: MediaBrowser) -> Int {
+    @objc func numberOfMedia(in mediaBrowser: MediaBrowser) -> Int {
         return mediaArray.count
     }
     
-    func isMediaSelected(at index: Int, in mediaBrowser: MediaBrowser) -> Bool {
+    @objc func isMediaSelected(at index: Int, in mediaBrowser: MediaBrowser) -> Bool {
         return selections[index]
 
     }
     
-    func didDisplayMedia(at index: Int, in mediaBrowser: MediaBrowser) {
+    @objc func didDisplayMedia(at index: Int, in mediaBrowser: MediaBrowser) {
         print("Did start viewing photo at index \(index)")
 
     }
