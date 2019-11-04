@@ -300,11 +300,8 @@ func floorcgf(x: CGFloat) -> CGFloat {
     }
 
     deinit {
-        clearCurrentVideo()
-        pagingScrollView.delegate = nil
         NotificationCenter.default.removeObserver(self)
         releaseAllUnderlyingPhotos(preserveCurrent: false)
-        SDImageCache.shared().clearMemory() // clear memory
     }
 
     private func releaseAllUnderlyingPhotos(preserveCurrent: Bool) {
@@ -1438,8 +1435,6 @@ func floorcgf(x: CGFloat) -> CGFloat {
             //                }
             //            }
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     func clearCurrentVideo() {
